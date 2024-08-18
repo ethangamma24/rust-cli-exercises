@@ -20,7 +20,7 @@ fn all_args() -> Result<(), Box<dyn std::error::Error>> {
 
 #[test]
 fn first_and_flag() -> Result<(), Box<dyn std::error::Error>> {
-    let args = ["first", "--flag", "6549841"];
+    let args = ["first", "--flag", "65498"];
     let output_bytes = Command::cargo_bin("arg_parse")?.args(args).output()?.stdout;
 
     let output_str = match str::from_utf8(&output_bytes) {
@@ -28,7 +28,7 @@ fn first_and_flag() -> Result<(), Box<dyn std::error::Error>> {
         Err(_) => panic!("Got non utf8 data from output_bytes"),
     };
 
-    assert_eq!(output_str, "\"first\"\n\"6549841\n");
+    assert_eq!(output_str, "\"first\"\n65498\n");
 
     Ok(())
 }
