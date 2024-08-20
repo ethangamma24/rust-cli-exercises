@@ -1,0 +1,32 @@
+[
+    {
+        "Name": "Ergonomic Office Chair",
+        "Price": "$199.99",
+        "Color": "Black",
+        "Quantity": 20
+    },
+    {
+        "Name": "Bucket Seat Gaming Chair",
+        "Price": "$249.99",
+        "Color": "Turquoise",
+        "Quantity": 3
+    },
+    {
+        "Name": "Curl Swivel Accent Chair",
+        "Price": "$407.96",
+        "Color": "Orange",
+        "Quantity": 2
+    },
+    {
+        "Name": "Velvet High Back Rocking Chair",
+        "Price": "$113.99",
+        "Color": "Blue",
+        "Quantity": 1
+    },
+    {
+        "Name": "Velvet High Back Rocking Chair",
+        "Price": "$27.99",
+        "Color": "Grey",
+        "Quantity": 5
+    }
+]
