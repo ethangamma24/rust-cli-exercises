@@ -1,7 +1,15 @@
+use clap::Parser;
 use cli_table::{format::Justify, print_stdout, Cell, Style, Table};
 use serde::{Deserialize, Serialize};
 use serde_json::{Result, Value};
 use std::fs;
+
+#[derive(Parser)]
+#[command(version)]
+struct Args {
+    #[arg(required = true)]
+    json_input: Option<String>,
+}
 
 #[derive(Serialize, Deserialize, Debug)]
 #[allow(non_snake_case)]
@@ -13,11 +21,15 @@ pub struct Chair {
 }
 
 fn main() {
+    let args = Args::parse();
+
+    let file_path = match args.json_input {
+        Some(val) => val,
+        None => panic!("JSON file required as input"),
+    };
+
     let data: Vec<Chair> = {
-        let file_content = fs::read_to_string(
-            "/home/thetincan/Git/Learning/rust-cli-exercises/05_table_of_chairs/src/chairs.json",
-        )
-        .expect("Unable to read chairs.json");
+        let file_content = fs::read_to_string(file_path).expect("Unable to read chairs.json");
         serde_json::from_str(&file_content).expect("Error serializing json")
     };
     let iterator = data.iter();
