@@ -33,7 +33,23 @@ fn calculate_fib(prev: String, curr: String, counter: u8, max: u8) -> String {
     } else if prev.eq(&String::from("0")) && curr.eq(&String::from("0")) {
         calculate_fib(String::from("0"), String::from("1"), 1, max)
     } else {
-        let prev_chars: Vec<_> = prev.chars().collect();
-        let curr_chars: Vec<_> = curr.chars().collect();
+        if curr.len() > prev.len() {
+            let prev_chars: Vec<char> = vec![0].append(prev.chars().collect());
+            let curr_chars: Vec<char> = curr.chars().collect();
+        } else {
+            let prev_chars: Vec<char> = prev.chars().collect();
+            let curr_chars: Vec<char> = curr.chars().collect();
+        }
+    }
+}
+
+fn addition(prev_chars: Vec<char>, curr_chars: Vec<char>) -> Vec<char> {
+    let carry: u8 = 0;
+    let mut iter = prev_chars.iter().zip(curr_chars.iter());
+
+    for num_pair in iter.rev() {
+        match num_pair {
+            // TODO: Extract num pair and do addition
+        }
     }
 }
